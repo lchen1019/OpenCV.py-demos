@@ -5,7 +5,7 @@ def main():
     face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_default.xml')
     eye_cascade = cv2.CascadeClassifier('data/haarcascade_eye.xml')
 
-    img = cv2.imread("person1.png")
+    img = cv2.imread("images/person1.png")
     # img = cv2.imread("person2.jpg")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -18,7 +18,8 @@ def main():
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
 
-    cv2.imshow('人脸识别', img)
+    cv2.imshow('face recognition', img)
+    cv2.imwrite('images/person2_res.jpg', img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
